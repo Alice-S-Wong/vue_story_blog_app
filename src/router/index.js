@@ -3,6 +3,10 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
+import StoriesIndex from "../views/StoriesIndex.vue";
+import StoriesShow from "../views/StoriesShow.vue";
+import PostsShow from "../views/PostsShow.vue";
+import AdminPortal from "../views/AdminPortal.vue";
 
 Vue.use(VueRouter)
 
@@ -21,6 +25,26 @@ const routes = [
     path: "/logout", 
     name: "logout", 
     component: Logout 
+  },
+  { 
+    path: "/stories", 
+    name: "stories-index", 
+    component: StoriesIndex 
+  },
+  { 
+    path: "/stories/:id", 
+    name: "stories-show", 
+    component: StoriesShow
+  },
+  { 
+    path: "/posts/:id", 
+    name: "posts-show", 
+    component: PostsShow
+  },
+  { 
+    path: "/admin", 
+    name: "admin-portal", 
+    component: AdminPortal
   },
   {
     path: '/about',

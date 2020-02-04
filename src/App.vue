@@ -1,7 +1,12 @@
 <template>
   <div id="app">
+    <h1>Mischief Writings</h1>
     <div id="nav">
-      <router-link to="/">Home</router-link>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/stories">Stories</router-link> |
+      <router-link to="/login">Admin Login</router-link> |
+      <router-link to="/logout">Admin Logout</router-link> |
+      <router-link to="/admin">Admin Portal</router-link> |
     </div>
     <router-view/>
   </div>
