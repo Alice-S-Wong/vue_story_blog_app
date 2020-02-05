@@ -2,6 +2,7 @@
   <div class="admin-stories-index">
     <div v-if="user.username">
       <h1>Story Management</h1>
+      <router-link to="/admin/stories/new">Create a Story</router-link> 
       <div v-for="story in stories">
         <p>{{story.id}}<p>
         <h2>{{story.title}}</h2>
