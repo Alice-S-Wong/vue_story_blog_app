@@ -2,6 +2,7 @@
   <div class="admin-portal">
     <div v-if="user.username">
       <h1>Welcome to the Admin Portal</h1>
+      <router-link to="/admin/stories">Manage Stories</router-link> 
     </div>
   </div>
 </template>

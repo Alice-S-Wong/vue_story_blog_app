@@ -4,9 +4,10 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/stories">Stories</router-link> |
+      <router-link to="/authors">About the Author</router-link> |
       <router-link to="/login">Admin Login</router-link> |
-      <router-link to="/logout">Admin Logout</router-link> |
-      <router-link to="/admin">Admin Portal</router-link> |
+      <router-link v-if="user.username" to="/logout">Admin Logout</router-link> |
+      <router-link v-if="user.username" to="/admin">Admin Portal</router-link> |
     </div>
     <router-view/>
   </div>
@@ -34,3 +35,22 @@
   color: #42b983;
 }
 </style>
+
+<script>
+import axios from "axios";
+export default {
+  data: function() {
+    return {
+      user: {}
+    };
+  },
+  created: function() {
+    axios.get("/api/users").then(response => {
+      if (response.data) {
+        this.user = response.data;
+      }
+    });
+  },
+  methods: {}
+};
+</script>

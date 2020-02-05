@@ -7,6 +7,8 @@ import StoriesIndex from "../views/StoriesIndex.vue";
 import StoriesShow from "../views/StoriesShow.vue";
 import PostsShow from "../views/PostsShow.vue";
 import AdminPortal from "../views/AdminPortal.vue";
+import AuthorIndex from "../views/AuthorIndex.vue";
+import AdminStoriesIndex from "../views/AdminStoriesIndex.vue";
 
 Vue.use(VueRouter)
 
@@ -45,6 +47,16 @@ const routes = [
     path: "/admin", 
     name: "admin-portal", 
     component: AdminPortal
+  },
+  { 
+    path: "/authors", 
+    name: "author-index", 
+    component: AuthorIndex
+  },
+  { 
+    path: "/admin/stories", 
+    name: "admin-stories-index", 
+    component: AdminStoriesIndex
   },
   {
     path: '/about',
