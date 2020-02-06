@@ -7,6 +7,7 @@
     <h2>Chapters</h2>
     <div v-for="post in story.posts">
       <h3>{{post.title}}</h3>
+      <p>Chapter Number: {{post.chapter_number}}</p>
       <p>Release Date: {{post.friendly_release_date}}</p>
       <router-link v-bind:to="`/posts/${post.post_id}`">Read Chapter</router-link>
     </div>

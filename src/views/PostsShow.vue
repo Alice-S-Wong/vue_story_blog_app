@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <h1>{{post.title}}</h1>
+    <p>Chapter Number: {{post.chapter_number}}</p>
     <p>Release Date: {{post.friendly_release_date}}</p>
     <p>{{post.body}}</p>
     <h2>Leave a Comment</h2>
@@ -11,8 +12,9 @@
       <button v-on:click="createComment()">Leave Comment</button>
     </div>
     <div v-for="comment in comments">
-      <h2>{{comment.name}}</h2>
       <h2>{{comment.title}}</h2>
+      <p>{{comment.name}}</p>
+      <p>Date: {{comment.friendly_date}}</p>
       <p>{{comment.body}}</p>
     </div>
   </div>

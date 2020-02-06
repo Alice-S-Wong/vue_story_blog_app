@@ -19,6 +19,7 @@
           <p>Release Date: <input type="date" v-model="story.release_date"></p>
           <button v-on:click="editStory(story)">Edit Story</button>
         </div>
+        <p><button v-on:click="destroyStory(story)">Delete Story</button></p>
       </div>
     </div>
   </div>
@@ -73,6 +74,11 @@ export default {
         var index = this.stories.indexOf(story);
         this.stories.splice(index, 1, response.data);    
       });
+    },
+    destroyStory: function(story) {
+      if (confirm("Do you really want to delete this story? This will delete all associated posts and comments.")) {
+        console.log("destroying story");
+      }
     }
   }
 };
