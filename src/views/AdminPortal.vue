@@ -5,6 +5,7 @@
       <p><router-link to="/admin/stories">Manage Stories</router-link></p>
       <p><router-link to="/admin/posts">Manage Posts</router-link></p>
       <p><router-link to="/admin/comments">Manage Comments</router-link></p>
+      <p><router-link to="/admin/authors">Manage Author</router-link></p>
     </div>
   </div>
 </template>

@@ -13,6 +13,8 @@ import StoriesNew from "../views/StoriesNew.vue";
 import PostsIndex from "../views/PostsIndex.vue";
 import PostsNew from "../views/PostsNew.vue";
 import CommentsIndex from "../views/CommentsIndex.vue";
+import AuthorsIndex from "../views/AuthorsIndex.vue";
+import AuthorsNew from "../views/AuthorsNew.vue";
 
 Vue.use(VueRouter)
 
@@ -81,6 +83,16 @@ const routes = [
     path: "/admin/comments", 
     name: "comments-index", 
     component: CommentsIndex
+  },
+  { 
+    path: "/admin/authors", 
+    name: "authors-index", 
+    component: AuthorsIndex
+  },
+  { 
+    path: "/admin/authors/new", 
+    name: "authors-new", 
+    component: AuthorsNew
   },
   {
     path: '/about',

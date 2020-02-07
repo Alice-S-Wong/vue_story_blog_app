@@ -1,39 +1,33 @@
 <template>
   <div id="app">
-    <h1>Mischief Writings</h1>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/stories">Stories</router-link> |
-      <router-link to="/authors">About the Author</router-link> |
-      <router-link to="/login">Admin Login</router-link> |
-      <router-link v-if="user.username" to="/logout">Admin Logout</router-link> |
-      <router-link v-if="user.username" to="/admin">Admin Portal</router-link> |
-    </div>
-    <router-view/>
+      <header id="header">
+        <a href="index.html" class="title">Mischief Writings</a>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/stories">Stories</a></li>
+            <li><a href="/authors">About the Author</a></li>
+            <li><a href="/login">Admin Login</a></li>
+            <li><a href="/logout">Admin Logout</a></li>
+            <li><a href="/admin">Admin Portal</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <router-view/>
+
+    <!-- Footer -->
+      <footer id="footer" class="wrapper alt">
+        <div class="inner">
+          <ul class="menu">
+            <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+          </ul>
+        </div>
+      </footer>
   </div>
 </template>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
 
 <script>

@@ -1,13 +1,28 @@
 <template>
   <div class="home">
-    <h1>All Stories</h1>
-    <div v-for="story in stories">
-      <h2>{{story.title}}</h2>
-      <p>Author: {{story.author}}</p>
-      <p>Description: {{story.description}}</p>
-      <p>Release Date: {{story.friendly_release_date}}</p>
-      <router-link v-bind:to="`/stories/${story.id}`">More details</router-link>
-    </div>
+    <!-- Wrapper -->
+      <div id="wrapper">
+
+        <!-- Main -->
+          <section id="main" class="wrapper">
+            <div class="inner">
+              <h1 class="major">All Stories</h1>
+              <!-- <span class="image fit"><img src="images/pic04.jpg" alt="" /></span> -->
+              <div v-for="story in stories">
+                <h2>{{story.title}}</h2>
+                <ul class="alt">
+                <li>Author: {{story.author}}</li>
+                <li>Description: {{story.description}}</li>
+                <li>Release Date: {{story.friendly_release_date}}</li>
+                <li><ul class="actions">
+                  <li><a v-bind:href="`/stories/${story.id}`" class="button">More Info</a></li>
+                </ul></li>
+              </ul>
+              </div>
+            </div>
+          </section>
+
+      </div>
   </div>
 </template>
 
