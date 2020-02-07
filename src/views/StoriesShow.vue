@@ -1,16 +1,33 @@
 <template>
   <div class="home">
-    <h1>{{story.title}}</h1>
-    <p>Author: {{story.author}}</p>
-    <p>Description: {{story.description}}</p>
-    <p>Release Date: {{story.friendly_release_date}}</p>
-    <h2>Chapters</h2>
-    <div v-for="post in story.posts">
-      <h3>{{post.title}}</h3>
-      <p>Chapter Number: {{post.chapter_number}}</p>
-      <p>Release Date: {{post.friendly_release_date}}</p>
-      <router-link v-bind:to="`/posts/${post.post_id}`">Read Chapter</router-link>
-    </div>
+
+    <!-- Wrapper -->
+      <div id="wrapper">
+
+        <!-- Main -->
+          <section id="main" class="wrapper">
+            <div class="inner">
+              <h1 class="major">{{story.title}}</h1>
+              <ul class="alt">
+                <li>Author: {{story.author}}</li>
+                <li>Description: {{story.description}}</li>
+                <li>Release Date: {{story.friendly_release_date}}</li>
+              </ul>
+              <h1 class="major">Chapters</h1>
+              <div v-for="post in story.posts">
+                <h2>{{post.title}}</h2>
+                <ul class="alt">
+                <li>Chapter Number: {{post.chapter_number}}</li>
+                <li>Release Date: {{post.friendly_release_date}}</li>
+                <li><ul class="actions">
+                  <li><a v-bind:href="`/posts/${post.post_id}`" class="button">Read Chapter</a></li>
+                </ul></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+      </div>
   </div>
 </template>
 

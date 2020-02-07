@@ -1,12 +1,23 @@
 <template>
   <div class="admin-portal">
-    <div v-if="user.username">
-      <h1>Welcome to the Admin Portal</h1>
-      <p><router-link to="/admin/stories">Manage Stories</router-link></p>
-      <p><router-link to="/admin/posts">Manage Posts</router-link></p>
-      <p><router-link to="/admin/comments">Manage Comments</router-link></p>
-      <p><router-link to="/admin/authors">Manage Author</router-link></p>
-    </div>
+    <!-- Wrapper -->
+      <div id="wrapper">
+
+        <!-- Main -->
+          <section id="main" class="wrapper">
+            <div class="inner">
+              <h1 class="major">Welcome to the Admin Portal</h1>
+              <!-- <span class="image fit"><img src="images/pic04.jpg" alt="" /></span> -->
+              <ul class="actions">
+                <li><a href="/admin/stories" class="button">Manage Stories</a></li>
+                <li><a href="/admin/posts" class="button">Manage Posts</a></li>
+                <li><a href="/admin/comments" class="button">Manage Comments</a></li>
+                <li><a href="/admin/authors" class="button">Manage Author</a></li>
+              </ul>
+            </div>
+          </section>
+
+      </div>
   </div>
 </template>
 

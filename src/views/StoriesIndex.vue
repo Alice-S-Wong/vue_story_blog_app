@@ -11,10 +11,10 @@
               <div v-for="story in stories">
                 <h2>{{story.title}}</h2>
                 <ul class="alt">
-                <li>Author: {{story.author}}</li>
-                <li>Description: {{story.description}}</li>
-                <li>Release Date: {{story.friendly_release_date}}</li>
-                <li><ul class="actions">
+                  <li>Author: {{story.author}}</li>
+                  <li>Description: {{story.description}}</li>
+                  <li>Release Date: {{story.friendly_release_date}}</li>
+                  <li><ul class="actions">
                   <li><a v-bind:href="`/stories/${story.id}`" class="button">More Info</a></li>
                 </ul></li>
               </ul>
