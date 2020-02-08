@@ -1,26 +1,39 @@
 <template>
   <div class="posts-index">
-    <div v-if="user.username">
-      <h1>Post Management</h1>
-      <router-link to="/admin/posts/new">Create a Post</router-link> 
-      <div v-for="post in posts">
-        <h2>{{post.title}}</h2>
-        <p>Chapter Number: {{post.chapter_number}}</p>
-        <p>Release Date: {{post.friendly_release_date}}</p>
-        <p>Story: {{post.story_title}}</p>
-        <button v-on:click="toggleEdit(post)">Open Edit Menu</button>
-        <div v-if="currentPost === post">
-          <p>Title: <input v-model="post.title"></p>
-          <p>Chapter Number: <input v-model="post.chapter_number"></p>
-          <p>Story: <select v-model="storyId">
-            <option v-for="story in stories" v-bind:value="story.id">{{story.title}}</option>
-          </select></p>
-          <p>Chapter Text: <textarea v-model="post.body"></textarea></p>
-          <p>Release Date: <input type="date" v-model="post.release_date"></p>
-          <button v-on:click="editPost(post)">Edit Post</button>
-        </div>
-        <p><button v-on:click="destroyPost(post)">Delete Post</button></p>
-      </div>
+
+    <div id="wrapper">
+
+        <!-- Main -->
+          <section id="main" class="wrapper">
+            <div v-if="user.username" class="inner">
+              <h1 class="major">Post Management</h1>
+              <!-- <span class="image fit"><img src="images/pic04.jpg" alt="" /></span> -->
+              <ul class="actions">
+                <li><a href="/admin/posts/new" class="button">Create a Post</a></li>
+              </ul>
+              <div v-for="post in posts">
+                <h2>{{post.title}}</h2>
+                <ul class="alt">
+                  <li>Chapter Number: {{post.chapter_number}}</li>
+                  <li>Release Date: {{post.friendly_release_date}}</li>
+                  <li>Story: {{post.story_title}}</li>
+                </ul>
+                <button v-on:click="toggleEdit(post)">Open Edit Menu</button>
+                <div v-if="currentPost === post">
+                  <p>Title: <input type="text" v-model="post.title"></p>
+                  <p>Chapter Number: <input type="text" v-model="post.chapter_number"></p>
+                  <p>Story: <select v-model="storyId">
+                    <option v-for="story in stories" v-bind:value="story.id">{{story.title}}</option>
+                  </select></p>
+                  <p>Chapter Text: <textarea v-model="post.body"></textarea></p>
+                  <p>Release Date: <input type="date" v-model="post.release_date"></p>
+                  <button v-on:click="editPost(post)">Edit Post</button>
+                </div>
+                <p><button v-on:click="destroyPost(post)">Delete Post</button></p>
+              </div>
+            </div>
+          </section>
+
     </div>
   </div>
 </template>

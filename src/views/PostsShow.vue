@@ -23,7 +23,9 @@
                         <input type="text" v-model="newTitle" placeholder="Title" />
                       </div>
                       <div class="col-12">
-                        <textarea v-model="newBody" placeholder="Enter your comment" rows="6"></textarea>
+                        <div class="editor">
+                        <ckeditor class="editor" :editor="editor" v-model="newBody" :config="editorConfig"></ckeditor>
+                      </div>
                       </div>
                       <div class="col-12">
                         <ul class="actions">
@@ -48,10 +50,12 @@
 </template>
 
 <style>
+
 </style>
 
 <script>
 import axios from "axios";
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 export default {
   data: function() {
     return {
@@ -59,7 +63,11 @@ export default {
       comments: [],
       newName: "",
       newTitle: "",
-      newBody: ""
+      editor: ClassicEditor,
+      newBody: '<p>Enter Comment Here.</p>',
+      editorConfig: {
+        // The configuration of the editor.
+      }
     };
   },
   created: function() {

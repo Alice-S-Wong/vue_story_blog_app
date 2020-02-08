@@ -5,7 +5,7 @@
 
         <!-- Main -->
           <section id="main" class="wrapper">
-            <div class="inner">
+            <div v-if="user.username" class="inner">
               <h1 class="major">Welcome to the Admin Portal</h1>
               <!-- <span class="image fit"><img src="images/pic04.jpg" alt="" /></span> -->
               <ul class="actions">

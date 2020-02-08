@@ -1,26 +1,38 @@
 <template>
   <div class="admin-stories-index">
-    <div v-if="user.username">
-      <h1>Story Management</h1>
-      <router-link to="/admin/stories/new">Create a Story</router-link> 
-      <div v-for="story in stories">
-        <p>{{story.id}}<p>
-        <h2>{{story.title}}</h2>
-        <p>Author: {{story.author}}</p>
-        <p>Description: {{story.description}}</p>
-        <p>Release Date: {{story.friendly_release_date}}</p>
-        <button v-on:click="toggleEdit(story)">Open Edit Menu</button>
-        <div v-if="currentStory === story">
-          <p>Title: <input v-model="story.title"></p>
-          <p>Author: <select v-model="authorId">
-            <option v-for="author in authors" v-bind:value="author.id">{{author.pen_name}}</option>
-          </select></p>
-          <p>Description: <textarea v-model="story.description"></textarea></p>
-          <p>Release Date: <input type="date" v-model="story.release_date"></p>
-          <button v-on:click="editStory(story)">Edit Story</button>
-        </div>
-        <p><button v-on:click="destroyStory(story)">Delete Story</button></p>
-      </div>
+
+    <div id="wrapper">
+
+        <!-- Main -->
+          <section id="main" class="wrapper">
+            <div v-if="user.username" class="inner">
+              <h1 class="major">Story Management</h1>
+              <!-- <span class="image fit"><img src="images/pic04.jpg" alt="" /></span> -->
+              <ul class="actions">
+                <li><a href="/admin/stories/new" class="button">Create a Story</a></li>
+              </ul>
+              <div v-for="story in stories">
+                <h2>{{story.title}}</h2>
+                <ul class="alt">
+                  <li>Author: {{story.author}}</li>
+                  <li>Description: {{story.description}}</li>
+                  <li>Release Date: {{story.friendly_release_date}}</li>
+                </ul>
+                <button v-on:click="toggleEdit(story)">Open Edit Menu</button>
+                <div v-if="currentStory === story">
+                  <p>Title: <input type="text" v-model="story.title"></p>
+                  <p>Author: <select v-model="authorId">
+                    <option v-for="author in authors" v-bind:value="author.id">{{author.pen_name}}</option>
+                  </select></p>
+                  <p>Description: <textarea v-model="story.description"></textarea></p>
+                  <p>Release Date: <input type="date" v-model="story.release_date"></p>
+                  <button v-on:click="editStory(story)">Edit Story</button>
+                </div>
+                <p><button v-on:click="destroyStory(story)">Delete Story</button></p>
+              </div>
+            </div>
+          </section>
+
     </div>
   </div>
 </template>

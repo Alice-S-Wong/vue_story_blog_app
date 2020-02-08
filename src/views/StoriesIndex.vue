@@ -16,8 +16,8 @@
                   <li>Release Date: {{story.friendly_release_date}}</li>
                   <li><ul class="actions">
                   <li><a v-bind:href="`/stories/${story.id}`" class="button">More Info</a></li>
-                </ul></li>
-              </ul>
+                  </ul></li>
+                </ul>
               </div>
             </div>
           </section>
