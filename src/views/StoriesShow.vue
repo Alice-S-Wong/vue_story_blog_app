@@ -10,18 +10,18 @@
               <h1 class="major">{{story.title}}</h1>
               <ul class="alt">
                 <li>Author: {{story.author}}</li>
-                <li>Description: {{story.description}}</li>
                 <li>Release Date: {{story.friendly_release_date}}</li>
               </ul>
+              <p v-html="story.description"></p>
               <h1 class="major">Chapters</h1>
               <div v-for="post in story.posts">
                 <h2>{{post.title}}</h2>
                 <ul class="alt">
                 <li>Chapter Number: {{post.chapter_number}}</li>
                 <li>Release Date: {{post.friendly_release_date}}</li>
-                <li><ul class="actions">
+                </ul>
+                <ul class="actions">
                   <li><a v-bind:href="`/posts/${post.post_id}`" class="button">Read Chapter</a></li>
-                </ul></li>
                 </ul>
               </div>
             </div>

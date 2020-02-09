@@ -11,21 +11,31 @@
               <ul class="actions">
                 <li><a href="/admin/stories/new" class="button">Create a Story</a></li>
               </ul>
-              <div v-for="story in stories">
+              <p>Search for story:<input type="text" v-model="searchTerm" list="titles"></p>
+              <datalist id="titles">
+                <option v-for="story in stories">{{ story.title }}</option>
+              </datalist>
+              <div v-for="story in filterBy(stories, searchTerm, 'title')">
                 <h2>{{story.title}}</h2>
                 <ul class="alt">
                   <li>Author: {{story.author}}</li>
-                  <li>Description: {{story.description}}</li>
                   <li>Release Date: {{story.friendly_release_date}}</li>
                 </ul>
+                <p v-html="story.description"></p>
                 <button v-on:click="toggleEdit(story)">Open Edit Menu</button>
                 <div v-if="currentStory === story">
                   <p>Title: <input type="text" v-model="story.title"></p>
                   <p>Author: <select v-model="authorId">
                     <option v-for="author in authors" v-bind:value="author.id">{{author.pen_name}}</option>
                   </select></p>
-                  <p>Description: <textarea v-model="story.description"></textarea></p>
                   <p>Release Date: <input type="date" v-model="story.release_date"></p>
+                  <div class="col-12">
+                    <p>Description:</p>
+                    <div class="editor">
+                    <ckeditor :editor="editor" v-model="story.description" :config="editorConfig"></ckeditor>
+                    </div>
+                  </div>
+                  <br>
                   <button v-on:click="editStory(story)">Edit Story</button>
                 </div>
                 <p><button v-on:click="destroyStory(story)">Delete Story</button></p>
@@ -42,14 +52,23 @@
 
 <script>
 import axios from "axios";
+import Vue2Filters from 'vue2-filters';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 export default {
+  mixins: [Vue2Filters.mixin],
   data: function() {
     return {
       user: {},
       stories: [],
       currentStory: {},
       authors: [],
-      authorId: ""
+      authorId: "",
+      searchTerm: "",
+      editor: ClassicEditor,
+      newBody: '<p>Enter Comment Here.</p>',
+      editorConfig: {
+        // The configuration of the editor.
+      }
     };
   },
   created: function() {

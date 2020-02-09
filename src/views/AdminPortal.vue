@@ -13,6 +13,7 @@
                 <li><a href="/admin/posts" class="button">Manage Posts</a></li>
                 <li><a href="/admin/comments" class="button">Manage Comments</a></li>
                 <li><a href="/admin/authors" class="button">Manage Author</a></li>
+                <li><a href="/admin/edit" class="button">Update Admin Info</a></li>
               </ul>
             </div>
           </section>
