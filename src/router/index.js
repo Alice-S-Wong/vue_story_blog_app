@@ -13,9 +13,10 @@ import StoriesNew from "../views/StoriesNew.vue";
 import PostsIndex from "../views/PostsIndex.vue";
 import PostsNew from "../views/PostsNew.vue";
 import CommentsIndex from "../views/CommentsIndex.vue";
-import AuthorsIndex from "../views/AuthorsIndex.vue";
+import AdminAuthorsIndex from "../views/AdminAuthorsIndex.vue";
 import AuthorsNew from "../views/AuthorsNew.vue";
 import AdminEdit from "../views/AdminEdit.vue";
+import IntroIndex from "../views/IntroIndex.vue";
 
 Vue.use(VueRouter)
 
@@ -87,8 +88,8 @@ const routes = [
   },
   { 
     path: "/admin/authors", 
-    name: "authors-index", 
-    component: AuthorsIndex
+    name: "admin-authors-index", 
+    component: AdminAuthorsIndex
   },
   { 
     path: "/admin/authors/new", 
@@ -99,6 +100,11 @@ const routes = [
     path: "/admin/edit", 
     name: "admin-edit", 
     component: AdminEdit
+  },
+  { 
+    path: "/admin/intro", 
+    name: "intro-index", 
+    component: IntroIndex
   },
   {
     path: '/about',

@@ -9,7 +9,6 @@
             <div class="inner">
               <h1 class="major">{{story.title}}</h1>
               <ul class="alt">
-                <li>Author: {{story.author}}</li>
                 <li>Release Date: {{story.friendly_release_date}}</li>
               </ul>
               <p v-html="story.description"></p>

@@ -11,7 +11,6 @@
               <div v-for="story in stories">
                 <h2>{{story.title}}</h2>
                 <ul class="alt">
-                  <li>Author: {{story.author}}</li>
                   <li>Release Date: {{story.friendly_release_date}}</li>
                 </ul>
                 <p v-html="story.description"></p>

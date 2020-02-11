@@ -8,12 +8,13 @@
             <div v-if="user.username" class="inner">
               <h1 class="major">Comment Management</h1>
               <!-- <span class="image fit"><img src="images/pic04.jpg" alt="" /></span> -->
-              <div v-for="comment in comments">
-                <h2>Title: {{comment.title}}</h2>
+              <p>Search comments by title:<input type="text" v-model="searchTerm"></p>
+              <div v-for="comment in filterBy(comments, searchTerm, 'title')">
+                <h2>{{comment.title}}</h2>
                 <ul class="alt">
                   <li>Commenter: {{comment.name}}</li>
                   <li>Date: {{comment.friendly_date}}</li>
-                  <li>Comment Text: {{comment.body}}</li>
+                  <li v-html="comment.body"></li>
                   <li><h3>Associated Post</h3></li>
                   <li>Post: {{comment.post}}</li>
                   <li>Chapter Number: {{comment.chapter_number}}</li>
@@ -25,22 +26,6 @@
           </section>
 
       </div>
-
-
-    <div v-if="user.username">
-      <h1>Comment Management</h1>
-      <div v-for="comment in comments">
-        <h2>Title: {{comment.title}}</h2>
-        <p>Commenter: {{comment.name}}</p>
-        <p>Date: {{comment.friendly_date}}</p>
-        <p>Comment Text: {{comment.body}}</p>
-        <p>Associated Post</p>
-        <p>Post: {{comment.post}}</p>
-        <p>Chapter Number: {{comment.chapter_number}}</p>
-        <p>Story: {{comment.story}}</p>
-        <button v-on:click="destroyComment(comment)">Delete Comment</button>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -49,11 +34,14 @@
 
 <script>
 import axios from "axios";
+import Vue2Filters from 'vue2-filters';
 export default {
+  mixins: [Vue2Filters.mixin],
   data: function() {
     return {
       user: {},
-      comments: {}
+      comments: {},
+      searchTerm: "",
     };
   },
   created: function() {

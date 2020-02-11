@@ -18,16 +18,12 @@
               <div v-for="story in filterBy(stories, searchTerm, 'title')">
                 <h2>{{story.title}}</h2>
                 <ul class="alt">
-                  <li>Author: {{story.author}}</li>
                   <li>Release Date: {{story.friendly_release_date}}</li>
                 </ul>
                 <p v-html="story.description"></p>
                 <button v-on:click="toggleEdit(story)">Open Edit Menu</button>
                 <div v-if="currentStory === story">
                   <p>Title: <input type="text" v-model="story.title"></p>
-                  <p>Author: <select v-model="authorId">
-                    <option v-for="author in authors" v-bind:value="author.id">{{author.pen_name}}</option>
-                  </select></p>
                   <p>Release Date: <input type="date" v-model="story.release_date"></p>
                   <div class="col-12">
                     <p>Description:</p>
@@ -61,8 +57,6 @@ export default {
       user: {},
       stories: [],
       currentStory: {},
-      authors: [],
-      authorId: "",
       searchTerm: "",
       editor: ClassicEditor,
       newBody: '<p>Enter Comment Here.</p>',
@@ -79,10 +73,6 @@ export default {
     });
     axios.get("/api/stories/admin").then(response => {
       this.stories = response.data;
-
-    });
-    axios.get("/api/authors").then(response => {
-      this.authors = response.data;
     });
   },
   methods: {
@@ -96,7 +86,6 @@ export default {
     editStory: function(story) {
       var params = {
         title: story.title,
-        author_id: this.authorId,
         description: story.description,
         release_date: story.release_date
       };

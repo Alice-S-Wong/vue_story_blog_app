@@ -8,7 +8,7 @@
             <div v-if="user.username" class="inner">
               <h1 class="major">Edit Admin Name, Email, Password</h1>
               <!-- <span class="image fit"><img src="images/pic04.jpg" alt="" /></span> -->
-              <p>All fields may be left blank if you do not wish to change them except password and password confirmation. You must either enter your existing password to keep the same password or enter a new password.</p>
+              <p>All fields may be left blank if you do not wish to change them.</p>
               <form v-on:submit.prevent="editAdmin()">
                     <div class="row gtr-uniform">
                       <div class="col-12">

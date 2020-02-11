@@ -9,7 +9,9 @@
             <div class="inner">
               <h1 class="major">Welcome to Mischief Writings</h1>
               <!-- <span class="image fit"><img src="images/pic04.jpg" alt="" /></span> -->
-              <p>This is a place where text goes.</p>
+              <div v-for="intro in intros">
+                <p v-html="intro.introduction"></p>
+              </div>
               <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                 <input type="hidden" name="cmd" value="_s-xclick" />
                 <input type="hidden" name="hosted_button_id" value="QEFCTRPZCTWCL" />
@@ -28,13 +30,18 @@
 </style>
 
 <script>
+import axios from "axios";
 export default {
   data: function() {
     return {
-      message: "Welcome to Vue.js!"
+      intros: []
     };
   },
-  created: function() {},
+  created: function() {
+    axios.get("/api/intros").then(response => {
+      this.intros = response.data;
+    });
+  },
   methods: {}
 };
 </script>

@@ -1,14 +1,22 @@
 <template>
   <div class="stories-new">
     <div v-if="user.username">
-      <h1>Create a Story</h1>
-      <p>Title: <input v-model="newTitle"></p>
-      <p>Author: <select v-model="newAuthor">
-        <option v-for="author in authors" v-bind:value="author.id">{{author.pen_name}}</option>
-      </select></p>
-      <p>Description: <textarea v-model="newDescription"></textarea></p>
-      <p>Release Date: <input type="date" v-model="newDate"></p>
-      <button v-on:click="createStory()">Create Story</button>
+      <!-- Wrapper -->
+      <div id="wrapper">
+
+        <!-- Main -->
+          <section id="main" class="wrapper">
+            <div class="inner">
+              <h1 class="major">Create a Story</h1>
+              <p>Title: <input type="text" v-model="newTitle"></p>
+              <div class="editor">
+                <ckeditor :editor="editor" v-model="newDescription" :config="editorConfig"></ckeditor>
+              </div>
+              <p>Release Date: <input type="date" v-model="newDate"></p>
+              <button v-on:click="createStory()">Create Story</button>
+            </div>
+          </section>
+      </div>
     </div>
   </div>
 </template>
@@ -18,15 +26,19 @@
 
 <script>
 import axios from "axios";
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 export default {
   data: function() {
     return {
       user: {},
       newTitle: "",
-      newAuthor: "",
-      newDescription: "",
+      newDescription: "Write description here",
       newDate: "",
-      authors: []
+      authors: [],
+      editor: ClassicEditor,
+      editorConfig: {
+        // The configuration of the editor.
+      }
     };
   },
   created: function() {
@@ -35,15 +47,11 @@ export default {
         this.user = response.data;
       }
     });
-    axios.get("/api/authors").then(response => {
-      this.authors = response.data;
-    });
   },
   methods: {
     createStory: function() {
       var params = {
         title: this.newTitle,
-        author_id: this.newAuthor,
         description: this.newDescription,
         release_date: this.newDate,
       };

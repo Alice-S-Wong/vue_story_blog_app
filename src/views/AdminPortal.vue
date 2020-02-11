@@ -8,12 +8,15 @@
             <div v-if="user.username" class="inner">
               <h1 class="major">Welcome to the Admin Portal</h1>
               <!-- <span class="image fit"><img src="images/pic04.jpg" alt="" /></span> -->
-              <ul class="actions">
+              <ul class="actions fit">
                 <li><a href="/admin/stories" class="button">Manage Stories</a></li>
                 <li><a href="/admin/posts" class="button">Manage Posts</a></li>
                 <li><a href="/admin/comments" class="button">Manage Comments</a></li>
+              </ul>
+              <ul class="actions fit">
                 <li><a href="/admin/authors" class="button">Manage Author</a></li>
                 <li><a href="/admin/edit" class="button">Update Admin Info</a></li>
+                <li><a href="/admin/intro" class="button">Update Home Page</a></li>
               </ul>
             </div>
           </section>

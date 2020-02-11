@@ -1,15 +1,27 @@
 <template>
   <div class="posts-new">
     <div v-if="user.username">
-      <h1>Create a Post</h1>
-      <p>Title: <input v-model="newTitle"></p>
-      <p>Chapter Number: <input v-model="newChapterNumber"></p>
-      <p>Story: <select v-model="newStory">
-        <option v-for="story in stories" v-bind:value="story.id">{{story.title}}</option>
-      </select></p>
-      <p>Chapter Text: <textarea v-model="newBody"></textarea></p>
-      <p>Release Date: <input type="date" v-model="newDate"></p>
-      <button v-on:click="createPost()">Create Post</button>
+
+      <!-- Wrapper -->
+      <div id="wrapper">
+
+        <!-- Main -->
+          <section id="main" class="wrapper">
+            <div class="inner">
+              <h1 class="major">Create a Story</h1>
+              <p>Title: <input type="text" v-model="newTitle"></p>
+              <p>Chapter Number: <input type="text" v-model="newChapterNumber"></p>
+              <p>Story: <select v-model="newStory">
+                <option v-for="story in stories" v-bind:value="story.id">{{story.title}}</option>
+              </select></p>
+              <div class="editor">
+                <ckeditor :editor="editor" v-model="newBody" :config="editorConfig"></ckeditor>
+              </div>
+              <p>Release Date: <input type="date" v-model="newDate"></p>
+              <button v-on:click="createPost()">Create Post</button>
+            </div>
+          </section>
+      </div>
     </div>
   </div>
 </template>
@@ -19,16 +31,21 @@
 
 <script>
 import axios from "axios";
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 export default {
   data: function() {
     return {
       user: {},
       newTitle: "",
       newStory: "",
-      newBody: "",
+      newBody: "Story text goes here",
       newDate: "",
       newChapterNumber: "",
-      stories: []
+      stories: [],
+      editor: ClassicEditor,
+      editorConfig: {
+        // The configuration of the editor.
+      }
     };
   },
   created: function() {
