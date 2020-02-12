@@ -8,6 +8,9 @@
           <section id="main" class="wrapper">
             <div class="inner">
               <h1 class="major">Create a Story</h1>
+              <ul class="actions">
+                <li><a href="/admin/stories" class="button">Return to Story Management</a></li>
+              </ul>
               <p>Title: <input type="text" v-model="newTitle"></p>
               <div class="editor">
                 <ckeditor :editor="editor" v-model="newDescription" :config="editorConfig"></ckeditor>

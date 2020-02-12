@@ -8,7 +8,10 @@
         <!-- Main -->
           <section id="main" class="wrapper">
             <div class="inner">
-              <h1 class="major">Create a Story</h1>
+              <h1 class="major">Create a Post</h1>
+              <ul class="actions">
+                <li><a href="/admin/posts" class="button">Return to Post Management</a></li>
+              </ul>
               <p>Title: <input type="text" v-model="newTitle"></p>
               <p>Chapter Number: <input type="text" v-model="newChapterNumber"></p>
               <p>Story: <select v-model="newStory">

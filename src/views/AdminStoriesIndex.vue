@@ -8,8 +8,8 @@
             <div v-if="user.username" class="inner">
               <h1 class="major">Story Management</h1>
               <ul class="actions">
-                <li><a href="/admin" class="button">Return to Admin Portal</a></li>
                 <li><a href="/admin/stories/new" class="button">Create a Story</a></li>
+                <li><a href="/admin" class="button">Return to Admin Portal</a></li>
               </ul>
               <p>Search for story:<input type="text" v-model="searchTerm" list="titles"></p>
               <datalist id="titles">
@@ -97,7 +97,10 @@ export default {
     },
     destroyStory: function(story) {
       if (confirm("Do you really want to delete this story? This will delete all associated posts and comments.")) {
-        console.log("destroying story");
+        axios.delete(`/api/stories/${story.id}`).then(response => {
+          var index = this.stories.indexOf(story);
+          this.stories.splice(index, 1);
+        });
       }
     }
   }

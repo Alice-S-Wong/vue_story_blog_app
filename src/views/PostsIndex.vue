@@ -9,8 +9,8 @@
               <h1 class="major">Post Management</h1>
               <!-- <span class="image fit"><img src="images/pic04.jpg" alt="" /></span> -->
               <ul class="actions">
-                <li><a href="/admin" class="button">Return to Admin Portal</a></li>
                 <li><a href="/admin/posts/new" class="button">Create a Post</a></li>
+                <li><a href="/admin" class="button">Return to Admin Portal</a></li>
               </ul>
               <p>Search posts by story name:<input type="text" v-model="searchTerm" list="titles"></p>
               <datalist id="titles">
@@ -127,7 +127,10 @@ export default {
     },
     destroyPost: function(post) {
       if (confirm("Do you really want to delete this post? This will delete all associated comments.")) {
-        console.log("destroying post");
+        axios.delete(`/api/posts/${post.id}`).then(response => {
+          var index = this.posts.indexOf(post);
+          this.posts.splice(index, 1);
+        });
       }
     }
   }
