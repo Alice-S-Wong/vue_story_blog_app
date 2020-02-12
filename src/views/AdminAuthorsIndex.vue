@@ -9,6 +9,9 @@
           <section id="main" class="wrapper">
             <div class="inner">
               <h1 class="major">Author Management</h1>
+              <ul class="actions">
+                <li><a href="/admin" class="button">Return to Admin Portal</a></li>
+              </ul>
               <div v-for="author in authors">
                 <h2>{{author.pen_name}}</h2>
                 <p v-html="author.bio"></p>

@@ -7,6 +7,9 @@
           <section id="main" class="wrapper">
             <div v-if="user.username" class="inner">
               <h1 class="major">Comment Management</h1>
+              <ul class="actions">
+                <li><a href="/admin" class="button">Return to Admin Portal</a></li>
+              </ul>
               <!-- <span class="image fit"><img src="images/pic04.jpg" alt="" /></span> -->
               <p>Search comments by title:<input type="text" v-model="searchTerm"></p>
               <div v-for="comment in filterBy(comments, searchTerm, 'title')">

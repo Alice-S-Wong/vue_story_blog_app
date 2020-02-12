@@ -12,6 +12,9 @@
                 <li>Release Date: {{story.friendly_release_date}}</li>
               </ul>
               <p v-html="story.description"></p>
+              <ul class="actions">
+                <li><a href="/stories" class="button">Return to Stories Page</a></li>
+              </ul>
               <h1 class="major">Chapters</h1>
               <div v-for="post in story.posts">
                 <h2>{{post.title}}</h2>

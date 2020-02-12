@@ -1,17 +1,28 @@
 <template>
   <div class="intro-new">
-    <div v-if="user.username">
-      <h1>Introduction Page Management</h1>
-      <div v-for="intro in intros">
-        <p v-html="intro.introduction"></p>
-        <button v-on:click="toggleEdit(intro)">Open Edit Menu</button>
-        <div v-if="currentIntro === intro">
-          <div class="editor">
-            <ckeditor :editor="editor" v-model="intro.introduction" :config="editorConfig"></ckeditor>
-          </div>
-          <button v-on:click="editAuthor(intro)">Edit Intro</button>
-        </div>
-      </div>
+    <div id="wrapper">
+
+        <!-- Main -->
+          <section id="main" class="wrapper">
+            <div v-if="user.username" class="inner">
+              <h1 class="major">Introduction Page Management</h1>
+              <ul class="actions">
+                <li><a href="/admin" class="button">Return to Admin Portal</a></li>
+              </ul>
+              <h2>Introduction Text</h2>
+              <div v-for="intro in intros">
+                <p v-html="intro.introduction"></p>
+                <button v-on:click="toggleEdit(intro)">Open Edit Menu</button>
+                <div v-if="currentIntro === intro">
+                  <div class="editor">
+                    <ckeditor :editor="editor" v-model="intro.introduction" :config="editorConfig"></ckeditor>
+                  </div>
+                  <button v-on:click="editAuthor(intro)">Edit Intro</button>
+                </div>
+              </div>
+            </div>
+          </section>
+       
     </div>
   </div>
 </template>

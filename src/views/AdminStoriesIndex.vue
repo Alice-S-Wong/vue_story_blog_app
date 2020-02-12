@@ -7,8 +7,8 @@
           <section id="main" class="wrapper">
             <div v-if="user.username" class="inner">
               <h1 class="major">Story Management</h1>
-              <!-- <span class="image fit"><img src="images/pic04.jpg" alt="" /></span> -->
               <ul class="actions">
+                <li><a href="/admin" class="button">Return to Admin Portal</a></li>
                 <li><a href="/admin/stories/new" class="button">Create a Story</a></li>
               </ul>
               <p>Search for story:<input type="text" v-model="searchTerm" list="titles"></p>
