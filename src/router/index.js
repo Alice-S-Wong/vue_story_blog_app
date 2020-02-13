@@ -14,7 +14,6 @@ import PostsIndex from "../views/PostsIndex.vue";
 import PostsNew from "../views/PostsNew.vue";
 import CommentsIndex from "../views/CommentsIndex.vue";
 import AdminAuthorsIndex from "../views/AdminAuthorsIndex.vue";
-import AuthorsNew from "../views/AuthorsNew.vue";
 import AdminEdit from "../views/AdminEdit.vue";
 import IntroIndex from "../views/IntroIndex.vue";
 
@@ -90,11 +89,6 @@ const routes = [
     path: "/admin/authors", 
     name: "admin-authors-index", 
     component: AdminAuthorsIndex
-  },
-  { 
-    path: "/admin/authors/new", 
-    name: "authors-new", 
-    component: AuthorsNew
   },
   { 
     path: "/admin/edit", 

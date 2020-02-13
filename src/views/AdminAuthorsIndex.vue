@@ -21,6 +21,7 @@
                   <div class="editor">
                     <ckeditor :editor="editor" v-model="author.bio" :config="editorConfig"></ckeditor>
                   </div>
+                  <br>
                   <button v-on:click="editAuthor(author)">Edit Author</button>
                 </div>
               </div>

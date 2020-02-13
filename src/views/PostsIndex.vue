@@ -42,6 +42,7 @@
                     <ckeditor :editor="editor" v-model="post.body" :config="editorConfig"></ckeditor>
                     </div>
                   </div>
+                  <br>
                   <button v-on:click="editPost(post)">Edit Post</button>
                 </div>
                 <p><button v-on:click="destroyPost(post)">Delete Post</button></p>
